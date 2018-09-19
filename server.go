@@ -45,8 +45,9 @@ func (s *Server) handler(w http.ResponseWriter, r *http.Request) {
 	vals := strings.Split("/", r.URL.Path[1:])
 	if len(vals) != 3 {
 		fmt.Fprintf(w, "Can't handle request")
+	} else {
+		fmt.Fprintf(w, s.handle(vals[0], vals[1], vals[2], s.ip, s.port))
 	}
-	fmt.Fprintf(w, s.handle(vals[0], vals[1], vals[2], s.ip, s.port))
 }
 
 func main() {
