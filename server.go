@@ -44,7 +44,7 @@ func (m *mainWriter) writeLocation(name string, lat, lon float32, ip, port strin
 func (s *Server) handler(w http.ResponseWriter, r *http.Request) {
 	vals := strings.Split("/", r.URL.Path[1:])
 	if len(vals) != 3 {
-		fmt.Fprintf(w, "Can't handle request: %v -> %v", len(vals), vals)
+		fmt.Fprintf(w, "Can't handle request: %v -> %v from %v", len(vals), vals, r.URL.Path[1:])
 	} else {
 		fmt.Fprintf(w, s.handle(vals[0], vals[1], vals[2], s.ip, s.port))
 	}
