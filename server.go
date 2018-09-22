@@ -12,6 +12,9 @@ import (
 	"google.golang.org/grpc"
 
 	pb "github.com/brotherlogic/location/proto"
+
+	//Needed to pull in gzip encoding init
+	_ "google.golang.org/grpc/encoding/gzip"
 )
 
 type locwriter interface {
